@@ -6,14 +6,14 @@ def parallel_processing(n, m, data):
     # TODO: write the function for simulating parallel tasks, 
     # create the output pairs
     for i in range(m):
-        min_completion_time = threads[0]
-        min_thread = 0
+        minTime = threads[0]
+        minThread = 0
         for j in range(1, n):
-            if threads[j] < min_completion_time:
-                min_completion_time = threads[j]
-                min_thread = j
-        output.append((min_thread, min_completion_time))
-        threads[min_thread] += data[i]
+            if threads[j] < minTime:
+                minTime = threads[j]
+                minThread = j
+        output.append((minThread, minTime))
+        threads[minThread] += data[i]
 
     return output
 
@@ -36,8 +36,8 @@ def main():
     result = parallel_processing(n,m,data)
     
     # TODO: print out the results, each pair in it's own line
-    for thread, start_time in result:
-        print(thread, start_time)
+    for thread, startTime in result:
+        print(thread, startTime)
 
 
 
